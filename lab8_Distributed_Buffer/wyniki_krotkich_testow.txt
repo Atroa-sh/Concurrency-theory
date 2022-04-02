@@ -1,0 +1,190 @@
+Metodyka: 
+Na każda konfigurację, program uruchamiany jest na kilka sekund. Wstawione wyniki są kopią wyników, które wypisywane są na terminal po przerwaniu wykonania programu.
+
+Wyjaśnienie do wyników rozłożenia obciążenia w buforze:
+Wersja round robin, która wybiera bufor, do którego zostanie wysłany producent lub konsument, sprawia że podczas jednego okrążenia każda komórka z bufora zostanie odwiedzona raz.
+Oznacza to, że ilość wartości, które otrzyma i przekaże bufor jest wprost proporcjonalna do ilości komórek, które ten bufor posiada. 
+W późniejszych testach, których pojemność buforów jest równa widać, że obciążenie również rozkłada sięrówno pomiędzy nie.
+
+
+nrOfConsumers = 1;
+nrOfProducers = 1;
+buffers = {2, 3, 4, 5, 6};
+
+P0 produced 43439
+C0 consumed 43601
+B0 received 4362
+B0 passed 4362
+B1 received 6570
+B1 passed 6569
+B2 received 8759
+B2 passed 8758
+B3 received 10948
+B3 passed 10947
+B4 received 13137
+B4 passed 13136
+
+nrOfConsumers = 5;
+nrOfProducers = 1;
+buffers = {2, 3, 4, 5, 6};
+
+P0 produced 62221
+C0 consumed 12475
+C1 consumed 12476
+C2 consumed 12476
+C3 consumed 12476
+C4 consumed 12476
+B0 received 6239
+B0 passed 6239
+B1 received 9384
+B1 passed 9384
+B2 received 12511
+B2 passed 12511
+B3 received 15638
+B3 passed 15638
+B4 received 18765
+B4 passed 18765
+
+nrOfConsumers = 10;
+nrOfProducers = 1;
+buffers = {2, 3, 4, 5, 6};
+
+P0 produced 51359
+C0 consumed 5152
+C1 consumed 5152
+C2 consumed 5152
+C3 consumed 5153
+C4 consumed 5153
+C5 consumed 5153
+C6 consumed 5153
+C7 consumed 5153
+C8 consumed 5153
+C9 consumed 5153
+B0 received 5154
+B0 passed 5154
+B1 received 7758
+B1 passed 7758
+B2 received 10343
+B2 passed 10343
+B3 received 12928
+B3 passed 12928
+B4 received 15513
+B4 passed 15513
+
+nrOfConsumers = 1;
+nrOfProducers = 5;
+buffers = {2, 3, 4, 5, 6};
+
+P0 produced 12368
+P1 produced 12398
+P2 produced 12395
+P3 produced 12398
+P4 produced 12398
+C0 consumed 61971
+B0 received 6200
+B0 passed 6198
+B1 received 9317
+B1 passed 9315
+B2 received 12422
+B2 passed 12419
+B3 received 15527
+B3 passed 15522
+B4 received 18632
+B4 passed 18626
+
+nrOfConsumers = 1;
+nrOfProducers = 10;
+buffers = {2, 3, 4, 5, 6};
+
+P0 produced 4750
+P1 produced 4767
+P2 produced 4767
+P3 produced 4767
+P4 produced 4767
+P5 produced 4767
+P6 produced 4768
+P7 produced 4767
+P8 produced 4766
+P9 produced 4766
+C0 consumed 47651
+B0 received 4768
+B0 passed 4766
+B1 received 7176
+B1 passed 7174
+B2 received 9568
+B2 passed 9565
+B3 received 11960
+B3 passed 11956
+B4 received 14352
+B4 passed 14346
+
+
+nrOfConsumers = 5;
+nrOfProducers = 5;
+buffers = {2, 3, 4, 5, 6};
+
+P0 produced 14352
+P1 produced 14387
+P2 produced 14389
+P3 produced 14387
+P4 produced 14388
+C0 consumed 14388
+C1 consumed 14388
+C2 consumed 14389
+C3 consumed 14386
+C4 consumed 14387
+B0 received 7196
+B0 passed 7195
+B1 received 10824
+B1 passed 10824
+B2 received 14432
+B2 passed 14432
+B3 received 18040
+B3 passed 18039
+B4 received 21648
+B4 passed 21646
+
+
+nrOfConsumers = 5;
+nrOfProducers = 5;
+buffers = {1};
+
+P0 produced 11382
+P1 produced 11430
+P2 produced 11418
+P3 produced 11423
+P4 produced 11424
+C0 consumed 11423
+C1 consumed 11426
+C2 consumed 11428
+C3 consumed 11421
+C4 consumed 11423
+B0 received 57124
+B0 passed 57123
+
+nrOfConsumers = 5;
+nrOfProducers = 5;
+buffers = {10, 10, 10, 10, 10};
+
+
+P0 produced 11520
+P1 produced 11549
+P2 produced 11550
+P3 produced 11550
+P4 produced 11551
+C0 consumed 11548
+C1 consumed 11551
+C2 consumed 11551
+C3 consumed 11551
+C4 consumed 11551
+B0 received 11552
+B0 passed 11551
+B1 received 11585
+B1 passed 11584
+B2 received 11585
+B2 passed 11584
+B3 received 11585
+B3 passed 11584
+B4 received 11585
+B4 passed 11584
+
